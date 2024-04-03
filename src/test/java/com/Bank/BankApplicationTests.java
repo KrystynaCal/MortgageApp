@@ -47,7 +47,28 @@ class BankApplicationTests {
         Mortgage lengthZero = new Mortgage(200000, 2.0, 0);
         //when //then
         assertThrows(IllegalArgumentException.class, () -> service.calculateMonthlyPayment(lengthZero));
-
     }
+    @Test
+    void shouldReturnIllegalArgumentExceptionWhenAmountIsNegative(){
+        //given
+        Mortgage negativeAmount = new Mortgage(-1, 2.0, 20);
+        //when //then
+        assertThrows(IllegalArgumentException.class, () -> service.calculateMonthlyPayment(negativeAmount));
+    }
+    @Test
+    void shouldReturnIllegalArgumentExceptionWhenInterestIsNegative(){
+        //given
+        Mortgage negativeInterest = new Mortgage(200000, -2.0, 20);
+        //when //then
+        assertThrows(IllegalArgumentException.class, () -> service.calculateMonthlyPayment(negativeInterest));
+    }
+    @Test
+    void shouldReturnIllegalArgumentExceptionWhenLengthIsNegative(){
+        //given
+        Mortgage negativeLength = new Mortgage(200000, 2, -20);
+        //when //then
+        assertThrows(IllegalArgumentException.class, () -> service.calculateMonthlyPayment(negativeLength));
+    }
+
 
 }
