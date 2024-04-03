@@ -19,7 +19,7 @@ public class BankController {
 
     @GetMapping("/rate")
     public String Rate() {
-        return "Wydaje sie trudne dopóki nie stanie się proste";
+        return "Obliczanie kwoty miesięcznych odsetek do zapłaty";
     }
 
     @PostMapping("/rate2")

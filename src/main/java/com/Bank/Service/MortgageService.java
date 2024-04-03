@@ -9,7 +9,7 @@ public class MortgageService {
         int amount = mortgage.amount();
         double annualInterestRate = mortgage.interest();
         int lengthInYears = mortgage.length();
-        if (amount == 0 || annualInterestRate == 0 || lengthInYears == 0) {
+        if (amount <= 0 || annualInterestRate <= 0 || lengthInYears <= 0) {
             throw new IllegalArgumentException("Can not be equal or less than zero");
         }
         int numberOfPayments = lengthInYears * 12;
